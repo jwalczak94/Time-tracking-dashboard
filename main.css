@@ -1,0 +1,295 @@
+/* BASIC RESET*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+p,
+h1,
+h2 {
+  overflow-wrap: break-word;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+/* VARIABLES */
+:root {
+  --bg-header: #5847eb;
+
+  --bg-work: hsl(15, 100%, 70%);
+  --bg-play: hsl(195, 74%, 62%);
+  --bg-study: hsl(348, 100%, 68%);
+  --bg-exercise: hsl(145, 58%, 55%);
+  --bg-social: hsl(264, 64%, 52%);
+  --bg-selfcare: hsl(43, 84%, 65%);
+
+  --blue-900: #0f1424;
+  --blue-600: #1c1f4a;
+  --blue-400: #6f76c8;
+  --blue-200: #bdc1ff;
+
+  --radius-m: 15px;
+}
+
+body {
+  background-color: var(--blue-900);
+  color: #fff;
+  font-family: "Rubik", sans-serif;
+
+  min-height: 100dvh;
+  min-height: 100vh;
+
+  display: grid;
+  place-content: center;
+}
+
+main {
+  margin: 5rem 1.5rem;
+
+  display: grid;
+  gap: 1.5rem;
+}
+
+article {
+  background-color: var(--blue-600);
+  border-radius: var(--radius-m);
+}
+
+header {
+  background-color: var(--bg-header);
+  border-radius: var(--radius-m);
+  padding: 2.125rem 2rem;
+
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+header img {
+  border: 3px solid white;
+  border-radius: 50%;
+  height: 4rem;
+}
+
+header span {
+  font-size: 15px;
+  color: var(--blue-200);
+  margin-bottom: 4px;
+}
+
+header h1 {
+  font-size: clamp(1.5rem, 1.1479rem + 1.5023vw, 2.5rem);
+  font-weight: 300;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+}
+
+li a {
+  color: var(--blue-400);
+  font-size: 1.125rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.active {
+  color: #fff;
+}
+
+.icon-box {
+  border-radius: var(--radius-m) var(--radius-m) 0 0;
+  height: 2.375rem;
+  overflow: hidden;
+
+  position: relative;
+}
+
+.icon-box img {
+  position: absolute;
+  top: -0.625rem;
+  right: 1rem;
+}
+
+#work .icon-box {
+  background-color: var(--bg-work);
+}
+
+#play .icon-box {
+  background-color: var(--bg-play);
+}
+
+#study .icon-box {
+  background-color: var(--bg-study);
+}
+
+#exercise .icon-box {
+  background-color: var(--bg-exercise);
+}
+
+#social .icon-box {
+  background-color: var(--bg-social);
+}
+
+#selfcare .icon-box {
+  background-color: var(--bg-selfcare);
+}
+
+h3 {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.box {
+  padding: 1.75rem 1.5rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.box span:last-of-type {
+  font-size: clamp(2rem, 1.4718rem + 2.2535vw, 3.5rem);
+  font-weight: 300;
+}
+
+.box p {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.box p,
+.box span:first-of-type {
+  color: var(--blue-200);
+  text-align: right;
+}
+
+@media (min-width: 800px) {
+  main {
+    margin: 5rem 1.5rem;
+
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #report {
+    grid-column: 1 / -1;
+  }
+
+  header img {
+    height: 4.875rem;
+  }
+
+  ul {
+    justify-content: center;
+    gap: 1.25rem;
+  }
+
+  .icon-box {
+    height: 2.8125rem;
+  }
+
+  .box {
+    padding: 1.75rem 2.125rem 2rem 1.875rem;
+
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    align-items: center;
+    row-gap: 1.5rem;
+
+    min-width: 250px;
+  }
+
+  .box span:last-of-type,
+  .box p {
+    grid-column: 1 / -1;
+  }
+
+  .box p {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1180px) {
+  main {
+    margin: 0;
+    gap: 1.875rem;
+
+    grid-template-columns: repeat(4, 255px);
+  }
+
+  header {
+    padding: 2.25rem 2rem;
+    gap: 2.625rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  #report {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+
+    display: grid;
+    grid-template-rows: auto min-content;
+  }
+
+  ul {
+    padding: 1.625rem 2rem 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .icon-box {
+    height: 2.8125rem;
+  }
+
+  .box {
+    padding: 1.75rem 2.125rem 2rem 1.875rem;
+
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    align-items: center;
+    row-gap: 0.5rem;
+
+    min-width: 250px;
+  }
+
+  .box span:last-of-type,
+  .box p {
+    margin-top: 1rem;
+    grid-column: 1 / -1;
+  }
+
+  .box p {
+    text-align: left;
+  }
+}
